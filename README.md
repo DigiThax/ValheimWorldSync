@@ -1,2 +1,5 @@
 # ValheimWorldSync
 Simple scripts to synchronize worlds between 2 or more players so that progress is shared and no single individual has to be online to host the world or rent a server
+
+# Sample
+sAAAAB3NzaC1yc2EAAAADAQABAAABAQDGhNWJ/dDXz0j6G6zHjzONecbxd+yuH+p3pLg455xVbL0umaHATnboR+qzSlworWbqFXUh59ewX1HLi9gqCTSQXvkM94ggqYT4Y+pV//wR+vMRfpBzKPRwZXAxm8zm6lp9dz/aH294DvgPKniWTP/ZGt9baYmZOM736vqqDO92SoAD7n158Zy6TTO6sTuTBhHi+eC0xC6X/I6032dn0MoZJ4Zb1eJFOXamfiEyqkagkSBguHHVtvwEuvreaEPBL63oTLpzHqlMLzxHzqke/SXbN39GWjZ5DPuTO2fzp0OVrjDzryCR7JdXgdhy5IQUA7Bz9NsfsWpu7JS6yUNg
