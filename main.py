@@ -1,18 +1,28 @@
+#!/usr/bin/env python3
+""" Valheim Save Synchronization
+ - Git Clones or Pulls
+ - Check for Save file location
+ - Move files to location (specify save name)
+ - Move files to Git (specify save name)
+"""
 import re
 import os
 import json
+import argparse
 import requests
 import subprocess
 
 from pprint import pprint
 
+def check_save_location():
+    # Pending: Set checks for linux directory
+    print(os.getenv('APPDATA'))
 
 def main():
-    pass
+    check_save_location()
 
 if __name__ == "__main__":
 
-    # Run some init steps here
     with open("config.json", "r") as f:
         config = json.load(f)
 
