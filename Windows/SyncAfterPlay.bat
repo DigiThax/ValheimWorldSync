@@ -25,31 +25,33 @@ if not defined WORLD_NAME (
     pause
     exit /b 1
 )
-
 cd /d "%REPO_DIR%"
 if %errorlevel% neq 0 (
     echo Error: Cannot change to REPO_DIR %REPO_DIR%.
     pause
     exit /b 1
 )
-
-echo Pulling latest world from Git
-git pull origin main
+echo Copying world from Valheim directory
+copy /Y "%VALHEIM_DIR%\%WORLD_NAME%.db" "%REPO_DIR%\%WORLD_NAME%.db"
+copy /Y "%VALHEIM_DIR%\%WORLD_NAME%.fwl" "%REPO_DIR%\%WORLD_NAME%.fwl"
 if %errorlevel% neq 0 (
-    echo Pull failed - resolve conflicts manually.
+    echo Error: Failed to copy world files to %REPO_DIR%.
     pause
     exit /b 1
 )
-
-echo Copying world to Valheim directory
-copy /Y "%REPO_DIR%\%WORLD_NAME%.db" "%VALHEIM_DIR%\%WORLD_NAME%.db"
-copy /Y "%REPO_DIR%\%WORLD_NAME%.fwl" "%VALHEIM_DIR%\%WORLD_NAME%.fwl"
+echo Committing and pushing changes
+git add "%WORLD_NAME%.db" "%WORLD_NAME%.fwl"
+git commit -m "Updated world save: %WORLD_NAME%"
 if %errorlevel% neq 0 (
-    echo Error: Failed to copy world files to %VALHEIM_DIR%.
-    pause
-    exit /b 1
+    echo No changes to commit.
+) else (
+    git push origin main
+    if %errorlevel% neq 0 (
+        echo Push failed - check connection or conflicts.
+        pause
+        exit /b 1
+    )
 )
-
-echo Sync complete. Ready to play!
+echo Sync complete. Changes pushed! Remember to run this after playing.
 pause
 endlocal
